@@ -6,11 +6,11 @@
   "status": "<PENDING | APPROVED | REJECTED>",
   "from": "Timestamp",
   "until": "Timestamp",
-  "comment": "String",
+  "comment": "String | null",
   "createdAt": "Timestamp",
   "requestedBy":"String",
   "updatedAt": "Timestamp",
-  "lastModifiedBy": "String",
+  "lastModifiedBy": "String | null",
   "reason": "String",
   "type":"OOO"
 }
@@ -21,11 +21,11 @@
 | Field         | Type      | Description                                                |
 | ------------- | --------- | ---------------------------------------------------------- |
 | id            | String    | Unique identifier for the document.                        |
-| requestedBy   | String    | The id of the user who created the request.                |
-| status        | String    | The state of the request like APPROVED, REJECTED, PENDING. |
+| requestedBy   | String    | UID of the user who created the request.                   |
+| status        | String    | One of: PENDING | APPROVED | REJECTED.                     |
 | from          | Timestamp | Unix timestamp for the start date of the OOO request.      |
 | until         | Timestamp | Unix timestamp for the end date of the OOO request.        |
-| reason        | String    | The reason for the request.                                |
+| reason        | String    | Requester-provided reason for the OOO.                     |
 | createdAt     | Timestamp | Unix timestamp for the creation time of the request.       |
 | updatedAt     | Timestamp | Unix timestamp for the last update time of the request.    |
 | lastModifiedBy| String    | The id of the superuser who processed the request          |
@@ -46,8 +46,8 @@
   "reason": "Out of office for personal reasons.",
   "createdAt": 1709438900000,
   "updatedAt": 1709438900000,
-  "comment": "null",
-  "lastModifiedBy":"null",
+  "comment": null,
+  "lastModifiedBy":null,
   "type":"OOO"
 }
 ```
@@ -75,7 +75,7 @@
 ```json
 {
   "id": "Me8sT1Tlid4Y6Y0d",
-  "userId": "dfdsd5T1Tlid4Y6Y0d",
+  "requestedBy": "dfdsd5T1Tlid4Y6Y0d",
   "status": "REJECTED",
   "from": 1709603700000,
   "until": 1709785600000,
