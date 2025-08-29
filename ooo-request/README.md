@@ -22,7 +22,7 @@
 | ------------- | --------- | ---------------------------------------------------------- |
 | id            | String    | Unique identifier for the document.                        |
 | requestedBy   | String    | UID of the user who created the request.                   |
-| status        | String    | One of: PENDING | APPROVED | REJECTED.                     |
+| status        | String    | current status for the request: PENDING | APPROVED | REJECTED.                     |
 | from          | Timestamp | Unix timestamp for the start date of the OOO request.      |
 | until         | Timestamp | Unix timestamp for the end date of the OOO request.        |
 | reason        | String    | Reason for requesting the OOO.                     |
