@@ -22,15 +22,15 @@
 | ------------- | --------- | ---------------------------------------------------------- |
 | id            | String    | Unique identifier for the document.                        |
 | requestedBy   | String    | UID of the user who created the request.                   |
-| status        | String    | current status for the request: PENDING | APPROVED | REJECTED.                     |
+| status        | String    | current status for the request: PENDING|APPROVED|REJECTED. |
 | from          | Timestamp | Unix timestamp for the start date of the OOO request.      |
 | until         | Timestamp | Unix timestamp for the end date of the OOO request.        |
-| reason        | String    | Reason for requesting the OOO.                     |
+| reason        | String    | Reason for requesting the OOO.                             |
 | createdAt     | Timestamp | Unix timestamp for the creation time of the request.       |
 | updatedAt     | Timestamp | Unix timestamp for the last update time of the request.    |
 | lastModifiedBy| String    | The id of the superuser who processed the request          |
 | comment       | String    | The reason for the APPROVED or REJECTED.                   |
-| type          | String    | The type of request being sent like OOO, Onboarding etc    |
+| type          | String    | The type of requests being sent OOO, Onboarding, extension |
 
 ### Example data
 
