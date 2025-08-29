@@ -25,7 +25,7 @@
 | status        | String    | One of: PENDING | APPROVED | REJECTED.                     |
 | from          | Timestamp | Unix timestamp for the start date of the OOO request.      |
 | until         | Timestamp | Unix timestamp for the end date of the OOO request.        |
-| reason        | String    | Requester-provided reason for the OOO.                     |
+| reason        | String    | Reason for requesting the OOO.                     |
 | createdAt     | Timestamp | Unix timestamp for the creation time of the request.       |
 | updatedAt     | Timestamp | Unix timestamp for the last update time of the request.    |
 | lastModifiedBy| String    | The id of the superuser who processed the request          |
