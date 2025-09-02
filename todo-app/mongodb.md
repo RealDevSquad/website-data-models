@@ -1,15 +1,3 @@
-# Todo Backend Data Models
-
-This document provides comprehensive data model documentation for both MongoDB and PostgreSQL implementations in the todo backend system.
-
-## Overview
-
-The system implements a dual-write architecture with:
-- **MongoDB**: Primary database for current operations
-- **PostgreSQL**: Secondary database for future migration and backup
-
-## MongoDB Collections
-
 ### 1. Users Collection
 
 ```json
@@ -55,13 +43,17 @@ The system implements a dual-write architecture with:
 ```json
 {
   "_id": "ObjectId",
-  "displayId": "string | null",
+  "displayId": "string",
   "title": "string",
   "description": "string | null",
   "priority": "<1 | 2 | 3>",
   "status": "<TODO | IN_PROGRESS | DEFERRED | BLOCKED | DONE>",
   "isAcknowledged": "boolean",
-  "labels": "Array<ObjectId>",
+  "labels": "Array<{
+                    \"id\": \"ObjectId\",
+                    \"name\": \"string\",
+                    \"color\": \"string\"
+                }>",
   "isDeleted": "boolean",
   "deferredDetails": {
     "deferredAt": "datetime | null",
@@ -82,13 +74,13 @@ The system implements a dual-write architecture with:
 | Field            | Type      | Description                                    |
 | ---------------- | --------- | ---------------------------------------------- |
 | _id              | ObjectId  | Unique identifier for the document.            |
-| displayId        | String    | Human-readable task identifier (optional).     |
+| displayId        | String    | Human-readable task identifier.     |
 | title            | String    | Task title.                                    |
 | description      | String    | Task description (optional).                   |
 | priority         | Integer   | Task priority: 1=HIGH, 2=MEDIUM, 3=LOW.       |
 | status           | String    | Task status: TODO, IN_PROGRESS, DEFERRED, BLOCKED, DONE. |
 | isAcknowledged   | Boolean   | Whether the task has been acknowledged.        |
-| labels           | Array     | Array of label ObjectIds.                      |
+| labels           | Array     | Array of label Objects.                      |
 | isDeleted        | Boolean   | Soft delete flag.                              |
 | deferredDetails  | Object    | Deferral information (optional).               |
 | startedAt        | DateTime  | When the task was started (optional).          |
@@ -103,13 +95,19 @@ The system implements a dual-write architecture with:
 ```json
 {
   "_id": "507f1f77bcf86cd799439012",
-  "displayId": "TASK-001",
+  "displayId": "#2",
   "title": "Implement user authentication",
   "description": "Add OAuth2 authentication with Google",
   "priority": 1,
   "status": "IN_PROGRESS",
   "isAcknowledged": true,
-  "labels": ["507f1f77bcf86cd799439020"],
+  "labels": [
+    {
+      "id": "507f1f77bcf86cd799439020",
+      "name": "Bug",
+      "color": "#FF0000"
+    }
+  ],
   "isDeleted": false,
   "deferredDetails": null,
   "startedAt": "2024-01-15T09:00:00Z",
@@ -128,7 +126,7 @@ The system implements a dual-write architecture with:
   "_id": "ObjectId",
   "name": "string",
   "description": "string | null",
-  "poc_id": "ObjectId | null",
+  "poc_id": "ObjectId",
   "invite_code": "string",
   "created_by": "ObjectId",
   "updated_by": "ObjectId",
@@ -145,7 +143,7 @@ The system implements a dual-write architecture with:
 | _id          | ObjectId  | Unique identifier for the document.            |
 | name         | String    | Team name (1-100 characters).                  |
 | description  | String    | Team description (optional).                   |
-| poc_id       | ObjectId  | Point of contact user ID (optional).           |
+| poc_id       | ObjectId  | Point of contact user ID.           |
 | invite_code  | String    | Unique team invite code.                       |
 | created_by   | ObjectId  | User ID who created the team.                  |
 | updated_by   | ObjectId  | User ID who last updated the team.             |

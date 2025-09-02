@@ -1,7 +1,4 @@
-
 ## PostgreSQL Tables
-
-The PostgreSQL implementation mirrors the MongoDB structure with additional sync metadata for the dual-write system.
 
 ### 1. postgres_users Table
 
