@@ -23,8 +23,5 @@
     "updatedAt": "TimeStamp"
   },
   "idleWindowStartedAt": "Number | null",
-  "lastOooFrom": "Number | null",
-  "lastOooUntil": "Number | null",
-  "oooPeriods": "Array<{ from: Number, until: Number }>"
 }
 ```
