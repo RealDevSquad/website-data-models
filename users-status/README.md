@@ -22,6 +22,6 @@
     "committed": "Number",
     "updatedAt": "TimeStamp"
   },
-  "idleWindowStartedAt": "Number | null",
+  "idleFrom": "Number | null",
 }
 ```
