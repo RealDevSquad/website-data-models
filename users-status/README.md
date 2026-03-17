@@ -21,6 +21,7 @@
   "monthlyHours": {
     "committed": "Number",
     "updatedAt": "TimeStamp"
-  }
+  },
+  "idleFrom": "Number | null",
 }
 ```
